@@ -49,7 +49,22 @@ git clone https://github.com/mloopa/eolabs.git
 cd eolabs/lab_1
 ```
 
-If you cloned without Git LFS installed, run `git lfs pull` afterwards.
+If you cloned without Git LFS installed the raster files will be small
+text stubs (~200 bytes) instead of actual data, causing rasterio to fail
+with *"not recognized as being in a supported file format"*.
+
+Check whether the files downloaded correctly:
+
+```bash
+# Each .tif should be tens or hundreds of MB -- not a few hundred bytes
+ls -lh data/vhr/istanbul_vhr.tiff
+```
+
+If the file is small, fetch the real data:
+
+```bash
+git lfs pull
+```
 
 ---
 
